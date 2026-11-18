@@ -1,0 +1,229 @@
+:root {
+  --color-primary: #e3350d;
+  --color-primary-dark: #b12a0a;
+  --color-secondary: #30a7d7;
+  --color-bg: #f2f2f2;
+  --color-panel: #ffffff;
+  --color-text: #212121;
+  --color-muted: #616161;
+  --color-card-back: #2a75bb;
+  --color-matched: #4caf50;
+  --color-highlight: #ffeb3b;
+  --radius: 10px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.header {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+}
+
+.header__title {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.card-panel {
+  background: var(--color-panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+/* Formularis */
+.register {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 300px;
+}
+
+.form--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.form__title {
+  margin-top: 0;
+  color: var(--color-primary);
+}
+
+.form__label {
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+.form__input {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.form__input:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(48, 167, 215, 0.25);
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-secondary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn:hover {
+  background: #1f87b3;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--danger {
+  margin-top: 1rem;
+  width: 100%;
+  background: var(--color-primary);
+}
+
+.btn--danger:hover {
+  background: var(--color-primary-dark);
+}
+
+/* Joc */
+.game {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.timer {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.8rem;
+}
+
+.card {
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius);
+  background-color: var(--color-card-back);
+  background-image: radial-gradient(circle, #fff 18%, transparent 19%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60%;
+  border: 3px solid #fff;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.card:hover:not(.flipped) {
+  transform: translateY(-4px);
+}
+
+.card.flipped {
+  background-color: #fff;
+  background-size: contain;
+  border-color: var(--color-card-back);
+  transform: rotateY(360deg);
+  cursor: default;
+}
+
+.card.matched {
+  background-color: var(--color-matched);
+  border-color: var(--color-matched);
+}
+
+/* Ranking */
+.ranking {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.ranking th,
+.ranking td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.ranking th {
+  background: var(--color-secondary);
+  color: #fff;
+}
+
+.ranking tr.highlight td {
+  background: var(--color-highlight);
+  font-weight: 600;
+}
+
+.ranking .ellipsis td {
+  text-align: center;
+  color: var(--color-muted);
+}
+
+/* Modal */
+.modal {
+  border: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal__message {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 800px) {
+  .game {
+    grid-template-columns: 1fr;
+  }
+}

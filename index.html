@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PokeMemory</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <!-- cgpt -->
+  <header class="header">
+    <h1 class="header__title">PokeMemory</h1>
+  </header>
+
+  <main class="main">
+    <section id="register" class="register" hidden>
+      <form id="user-form" class="card-panel form">
+        <h2 class="form__title">Registre</h2>
+        <label class="form__label" for="username">Username</label>
+        <input class="form__input" type="text" id="username" name="username" required>
+        <label class="form__label" for="email">Email</label>
+        <input class="form__input" type="email" id="email" name="email" required>
+        <button class="btn" type="submit">Entrar</button>
+      </form>
+    </section>
+
+    <section id="game" class="game" hidden>
+      <div class="game__left">
+        <form id="game-form" class="card-panel form form--inline" novalidate>
+          <label class="form__label" for="cards-number">Número de cartes</label>
+          <input class="form__input" type="text" id="cards-number" name="cards-number" placeholder="Ex: 8">
+          <button class="btn" type="submit" id="play-btn">Jugar</button>
+        </form>
+        <p class="timer">Temps: <span id="timer">0m 0s</span></p>
+        <div id="game-board" class="board"></div>
+      </div>
+
+      <aside class="game__right">
+        <div class="card-panel">
+          <h2 class="form__title">Ranking</h2>
+          <table id="ranking" class="ranking">
+            <thead>
+              <tr>
+                <th>Posició</th>
+                <th>Username</th>
+                <th>Mail</th>
+                <th>Temps</th>
+                <th>Número de cartes</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <button class="btn btn--danger" type="button" id="logout-btn">Logout</button>
+      </aside>
+    </section>
+  </main>
+
+  <dialog id="modal" class="modal">
+    <p id="modal-message" class="modal__message"></p>
+    <form method="dialog">
+      <button class="btn" type="submit">Tancar</button>
+    </form>
+  </dialog>
+</body>
+</html>
